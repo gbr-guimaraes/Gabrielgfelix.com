@@ -1,0 +1,73 @@
+.infos {
+  width: 100%;
+  height: 30rem;
+  background-color: aliceblue;
+}
+
+
+
+
+.timeline {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .timeline ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .timeline ul::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #007bff; /* Cor da linha */
+    z-index: 1; /* Garante que a linha fique atrás dos itens */
+  }
+  
+  .timeline li {
+    display: flex;
+    margin-bottom: 40px;
+    position: relative; /* Para posicionar o marcador */
+  }
+  
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #007bff; /* Cor do marcador */
+    z-index: 2; /* Garante que o marcador fique na frente da linha */
+  }
+  
+  .timeline li:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+  
+  .timeline li:nth-child(odd) .content {
+    margin-right: 30px; /* Espaçamento à direita para itens ímpares */
+  }
+  
+  .timeline li:nth-child(even) .content {
+    margin-left: 30px;  /* Espaçamento à esquerda para itens pares */
+  }
+  
+  .content {
+    background: #343a40; /* Cor do card */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+  
+  .content h3 {
+    margin-top: 0;
+  }
