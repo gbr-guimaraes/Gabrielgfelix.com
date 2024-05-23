@@ -68,8 +68,14 @@
   }
   
   .dropbtn{
-    height: 0.875rem;
-    width: 0.875rem;
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+
+  .dropbtn img{
+    height: 1.25rem;
+    width: 1.25rem;
+    object-fit: contain;
   }
   
   .lista-idiomas {

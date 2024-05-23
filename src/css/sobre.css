@@ -1,73 +1,221 @@
-.infos {
+.info {
   width: 100%;
   height: 30rem;
-  background-color: aliceblue;
+  display: flex;
+}
+
+.info div {
+  width: 50%;
+  height: 100%;
+}
+
+.info .separador {
+  width: 0.125rem;
+  background-image: linear-gradient(to bottom, transparent, #EBA417, transparent);
+  ;
+}
+
+.info-foto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-foto img {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 100%;
+  border: 0.25rem solid #EBA41799;
+  object-fit: cover;
+}
+
+.info-gerais {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-gerais div {
+  width: 80%;
+  height: fit-content;
+}
+
+.info-gerais .nome {
+  margin-top: 2rem;
 }
 
 
+.info-gerais .nome h1 {
+  margin: 0;
+  font-size: 4rem;
+  color: #EBA417;
+}
+
+.info-gerais .nome h2 {
+  margin: 0;
+  font-size: 3rem;
+  color: #E1E1E6;
+}
+
+.info-gerais .cargo h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #E1E1E6;
+  font-style: italic;
+}
+
+.info-gerais .contato {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-gerais .contato div {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.info-gerais .contato div img {
+  margin-right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.info-gerais .contato div p {
+  color: #E1E1E6;
+  margin: 0;
+}
 
 
+/*------------------------------------------------*/
+
+.titulo h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #EBA417;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10%;
+  margin-top: 3rem;
+  align-items: center;
+}
+
+.about div {
+  width: 100%;
+  height: fit-content;
+}
+
+.about p {
+  margin: 0;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #E1E1E6;
+}
+
+
+/*------------------------------------------------*/
+.experience{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
 .timeline {
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
-  }
-  
-  .timeline ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .timeline ul::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: #007bff; /* Cor da linha */
-    z-index: 1; /* Garante que a linha fique atrás dos itens */
-  }
-  
-  .timeline li {
-    display: flex;
-    margin-bottom: 40px;
-    position: relative; /* Para posicionar o marcador */
-  }
-  
-  .timeline li::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: #007bff; /* Cor do marcador */
-    z-index: 2; /* Garante que o marcador fique na frente da linha */
-  }
-  
-  .timeline li:nth-child(odd) {
-    flex-direction: row-reverse;
-  }
-  
-  .timeline li:nth-child(odd) .content {
-    margin-right: 30px; /* Espaçamento à direita para itens ímpares */
-  }
-  
-  .timeline li:nth-child(even) .content {
-    margin-left: 30px;  /* Espaçamento à esquerda para itens pares */
-  }
-  
-  .content {
-    background: #343a40; /* Cor do card */
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    color: white;
-  }
-  
-  .content h3 {
-    margin-top: 0;
-  }
+  margin-top: 2rem;
+  position: relative;
+}
+
+.timeline ul {
+  list-style: none;
+  padding: 0;
+}
+
+.timeline ul::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 0;
+  bottom: 0;
+  width: 0.1875rem;
+  background-image: linear-gradient(to bottom, #EBA417, #EBA41780);
+  /* Cor da linha */
+  z-index: 1;
+  /* Garante que a linha fique atrás dos itens */
+}
+
+.timeline li {
+  display: flex;
+  margin-bottom: 2.5rem;
+  position: relative;
+  /* Para posicionar o marcador */
+}
+
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.9375rem;
+  height: 0.9375rem;
+  border-radius: 50%;
+  background: #EBA417;
+  /* Cor do marcador */
+  z-index: 2;
+  /* Garante que o marcador fique na frente da linha */
+}
+
+.timeline li::after { 
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 3.625rem;  /* Largura da linha de conexão */
+  height: 0.1875rem; /* Espessura da linha de conexão */
+
+  z-index: 1; /* Abaixo do marcador */
+}
+
+.timeline li:nth-child(even)::after {
+  right: calc(50% ); /* Posição à direita para itens ímpares */
+  background-image: linear-gradient(to left, #EBA417, transparent);
+}
+
+.timeline li:nth-child(odd)::after {
+  left: calc(50%);  /* Posição à esquerda para itens pares */
+  background-image: linear-gradient(to right, #EBA417, transparent);
+}
+
+.timeline li:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.timeline li:nth-child(odd) .content {
+  margin-right: 2rem;
+  /* Espaçamento à direita para itens ímpares */
+}
+
+.timeline li:nth-child(even) .content {
+  margin-left: 2rem;
+  /* Espaçamento à esquerda para itens pares */
+}
+
+.content {
+  background: #343a40;
+  /* Cor do card */
+  padding: 1.25rem;
+  border-radius: 0.25rem;
+  color: #E1E1E6;
+}
+
+.content h3 {
+  margin-top: 0;
+}
+
+/*------------------------------------------------*/
