@@ -1,97 +1,91 @@
 .menu {
-    width: 100%;
-    height: 3.5rem;
-    background-color: #121414;
-    top: 0;
-    margin: 0;
-    padding: 0;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    z-index: 100;
-  }
-  
-  .conteudos{
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    width: 40%;
-    margin-left: 30%;
-    height: 100%;
-    display: flex;
-  }
-  
-  .conteudos li {
-    width: 33%;
-    height: 100%;
-    align-content: center;
-    text-align: center;
-  }
-  
-  .conteudos li a{
-    padding: 1rem 6rem;
-    color: #E1E1E6;
-    text-decoration: none;
-  }
-  
-  .conteudos li:hover{
-    border-bottom: 0.125rem solid #EBA417;
-  }
-  
-  .active {
-    border-bottom: 0.125rem solid #EBA417;
-  }
-  
-  .idiomas {
-    height: 100%;
-    width: 30%;
-    float: right;
-    display: grid;
-    align-items: center;
-    justify-items: end;
-    padding-right: 2.5rem;
-  }
-  
-  .botao-idiomas {
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 10%;
-    position: absolute;
-    align-self: center;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-  }
-  
-  .botao-idiomas:hover{
-    background-color: #f9f9f980;
-  }
-  
-  .dropbtn{
-    height: 1.25rem;
-    width: 1.25rem;
-  }
+  width: 100%;
+  height: 3.5rem;
+  background-color: #121414;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+}
 
-  .dropbtn img{
-    height: 1.25rem;
-    width: 1.25rem;
-    object-fit: contain;
-  }
-  
-  .lista-idiomas {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 0.175rem;
-    z-index: 1;
-    top: 2.5rem;
-    border-radius: 5%;
-  }
-  
-  .lista-idiomas a img {
-    width: 1.5rem;
-    height: 1rem;
-    object-fit: contain;
-    border-radius: 15%;
-  }
+.conteudos {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  width: 40%;
+  margin-left: 30%;
+  height: 100%;
+  display: flex;
+}
+
+.conteudos a {
+  width: 33%;
+  height: 100%;
+  align-content: center;
+  text-align: center;
+  color: #E1E1E6;
+  text-decoration: none;
+}
+
+
+.conteudos a:hover,
+.conteudos a.active {
+  border-bottom: 0.125rem solid #EBA417;
+}
+
+.idiomas {
+  height: 100%;
+  width: 30%;
+  float: right;
+  display: grid;
+  align-items: center;
+  justify-items: end;
+  padding-right: 2.5rem;
+}
+
+.botao-idiomas {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 10%;
+  position: absolute;
+  align-self: center;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.botao-idiomas:hover {
+  background-color: #f9f9f980;
+}
+
+.dropbtn {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.dropbtn img {
+  height: 1.25rem;
+  width: 1.25rem;
+  object-fit: contain;
+}
+
+.lista-idiomas {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 0.175rem;
+  z-index: 1;
+  top: 2.5rem;
+  border-radius: 5%;
+}
+
+.lista-idiomas a img {
+  width: 1.5rem;
+  height: 1rem;
+  object-fit: contain;
+  border-radius: 15%;
+}

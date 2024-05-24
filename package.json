@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "firebase": "^10.12.1",
     "flag-icons": "^7.2.1"
   }
 }

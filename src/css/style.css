@@ -9,3 +9,8 @@ body{
 article {
   margin: 0 15%;
 }
+
+footer{
+  height: 2rem;
+  width: 100%;
+}

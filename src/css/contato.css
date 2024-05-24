@@ -1,0 +1,43 @@
+.contato-container{
+    width: 80%;
+    margin:1.25rem auto;
+}
+
+.contato-container h1{
+    color: #EBA417;
+    font-size: 3rem;
+    margin: 0;
+    margin-bottom: 2rem;
+}
+
+#lista-contatos{
+    padding: 0 1rem;
+}
+
+.contato{
+    margin-bottom: 1.5rem;
+}
+
+.contato a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.contato a:hover{
+        opacity: 0.7;
+}
+
+.contato img{
+    margin-right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+}
+
+.contato p{
+    color: #E1E1E6;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+}

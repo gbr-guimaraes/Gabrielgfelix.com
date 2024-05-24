@@ -1,0 +1,45 @@
+.projetos-container {
+    width: 80%;
+    margin: 1.25rem auto;
+}
+
+.projetos-container h1 {
+    color: #EBA417;
+    font-size: 3rem;
+    margin: 0;
+    margin-bottom: 2rem;
+
+}
+
+#lista-projetos{
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.projeto {
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #343a40;
+}
+
+.projeto h3{
+    margin: 0;
+}
+
+.projeto h3:hover{
+    opacity: 0.7;
+}
+
+.projeto h3 a {
+    text-decoration: none;
+    color: #EBA417;
+    font-size: 1.25rem;
+}
+
+p {
+    color: #E1E1E6;
+    margin-bottom: 0.5rem;
+}

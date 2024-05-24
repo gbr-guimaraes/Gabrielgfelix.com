@@ -64,27 +64,27 @@
   font-style: italic;
 }
 
-.info-gerais .contato {
+.info-gerais .info-contato {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.info-gerais .contato div {
+.info-gerais .info-contato div {
   display: flex;
   align-items: center;
   margin: 0.5rem;
 }
 
-.info-gerais .contato div img {
+.info-gerais .info-contato div img {
   margin-right: 1rem;
   width: 2rem;
   height: 2rem;
   object-fit: contain;
 }
 
-.info-gerais .contato div p {
+.info-gerais .info-contato div p {
   color: #E1E1E6;
   margin: 0;
 }
@@ -219,3 +219,63 @@
 }
 
 /*------------------------------------------------*/
+.skills{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 8rem;
+}
+
+.skills-box{
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 0 1rem;
+  margin-top: 1rem;
+  justify-content: space-between;
+}
+
+.skills-container {
+  /* ... estilos gerais do container ... */
+  height: fit-content;
+  width: 33%;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: #343a40;
+  color: #E1E1E6;
+}
+
+.skills-container h3{
+  margin: 0;
+  text-align: center;
+}
+
+.skills-container ul{
+  list-style: none;
+  padding: 0;
+}
+
+.skill h4{
+  margin: 1.25rem 0;
+}
+
+.barra {
+  /* Estilos do container da barra segmentada */
+  width: 100%;
+  height: 0.5rem;
+  background-color: #343a40;
+  display: flex; /* Habilita Flexbox para organizar os segmentos */
+}
+
+.segmento {
+  /* Estilos de cada segmento da barra */
+  height: 100%;
+  border-radius: 0.125rem;
+  background-color: #E1E1E6;
+  flex-grow: 1; /* Permite que os segmentos ocupem o espaço disponível */
+}
+
+.segmento:not(:last-child) {
+  /* Adiciona espaçamento entre os segmentos (exceto o último) */
+  margin-right: 0.375rem; 
+}
