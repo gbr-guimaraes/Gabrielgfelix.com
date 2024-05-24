@@ -2,10 +2,11 @@ import { classificarSkills } from '../../js/sobre.js';
 import { carregarGithub } from '../../js/projetos.js';
 
 export function carregarPagina(pagina) {
-    fetch(`${pagina}.html`)
+    fetch(`/public/${pagina}.html`)
         .then(response => response.text())
         .then(html => {
             document.getElementById('content-container').innerHTML = html;
+            document.getElementById('head-title').innerHTML = `${pagina.charAt(0).toUpperCase() + pagina.slice(1)} - Gabriel G.F.`;
 
             const link = document.createElement('link');
             link.rel = 'stylesheet';

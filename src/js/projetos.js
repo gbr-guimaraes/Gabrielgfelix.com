@@ -10,7 +10,7 @@ export function carregarGithub() {
                 const listItem = document.createElement('div');
                 listItem.classList.add('projeto');
                 listItem.innerHTML = `
-                <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+                <h3><a href="${repo.html_url} " target="_blank" rel="noopener noreferrer">${repo.name.replaceAll('-', ' ')}</a></h3>
                 <p>${repo.description}</p>
                 <p>Linguagem: ${repo.language}</p>
             `;
