@@ -1,7 +1,7 @@
-import { fetchData } from './api.js';
+import { fetchData, langSelection } from './api.js';
 
 export function carregarConteudoSobre() {
-    fetchData()
+    fetchData(langSelection())
         .then((data) => {
             const geral = data.find((item) => item.id === "geral");
             document.getElementById('foto').innerHTML = `<img src=${geral.fotoperfil} alt="foto">`;

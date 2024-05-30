@@ -14,7 +14,7 @@ const cors = require("cors")({origin: true});
 admin.initializeApp();
 const db = admin.firestore();
 
-exports.api = functions.https.onRequest((req, res) => {
+exports.ptbr = functions.https.onRequest((req, res) => {
   cors(req, res, () => {
     // Monitorar alterações na coleção "sobre"
     db.collection("pt-BR")
@@ -29,3 +29,53 @@ exports.api = functions.https.onRequest((req, res) => {
         });
   });
 });
+
+exports.eses = functions.https.onRequest((req, res) => {
+  cors(req, res, () => {
+    // Monitorar alterações na coleção "sobre"
+    db.collection("es-ES")
+        .onSnapshot((snapshot) => {
+          const sobreData = [];
+          snapshot.forEach((doc) => {
+            sobreData.push({id: doc.id, ...doc.data()});
+          });
+          res.json(sobreData);
+        }, (error) => {
+          res.status(500).json({error: error.message});
+        });
+  });
+});
+
+exports.itit = functions.https.onRequest((req, res) => {
+  cors(req, res, () => {
+    // Monitorar alterações na coleção "sobre"
+    db.collection("it-IT")
+        .onSnapshot((snapshot) => {
+          const sobreData = [];
+          snapshot.forEach((doc) => {
+            sobreData.push({id: doc.id, ...doc.data()});
+          });
+          res.json(sobreData);
+        }, (error) => {
+          res.status(500).json({error: error.message});
+        });
+  });
+});
+
+
+exports.enus = functions.https.onRequest((req, res) => {
+  cors(req, res, () => {
+    // Monitorar alterações na coleção "sobre"
+    db.collection("en-US")
+        .onSnapshot((snapshot) => {
+          const sobreData = [];
+          snapshot.forEach((doc) => {
+            sobreData.push({id: doc.id, ...doc.data()});
+          });
+          res.json(sobreData);
+        }, (error) => {
+          res.status(500).json({error: error.message});
+        });
+  });
+});
+

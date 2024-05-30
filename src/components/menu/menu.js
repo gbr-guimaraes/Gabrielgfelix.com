@@ -1,9 +1,10 @@
 import { carregarConteudoSobre } from '../../js/sobre.js';
 import { carregarConteudoContato } from '../../js/contato.js';
 import { carregarProjetos } from '../../js/projetos.js';
-import { fetchData } from '../../js/api.js'
+import { defaultLang, fetchData, langSelection } from '../../js/api.js'
 
-fetchData()
+function carregarMenu(){
+fetchData(langSelection())
     .then((data) => {
         const menu = data.find((item) => item.id === "menu");
         document.getElementById('botao-sobre').innerHTML = `<li>${menu.sobre}</li>`;
@@ -11,6 +12,7 @@ fetchData()
         document.getElementById('botao-contato').innerHTML = `<li>${menu.contato}</li>`;
 
         const idiomas = data.find((item) => item.id === "menu-idiomas");
+        document.getElementById('lista-idiomas').innerHTML= "";
 
         Object.entries(idiomas).forEach(([key, value]) => {
             if (key !== 'id') {
@@ -20,6 +22,7 @@ fetchData()
                 icon.dataset.lang = key; // Use a chave (idioma) como valor do data-lang
                 icon.src = value.src; // Acessa o atributo 'src' do objeto 'value'
                 icon.alt = value.alt; // Acessa o atributo 'alt' do objeto 'value'
+                icon.classList.add('langSelection')
 
                 // Cria um elemento <img> para o ícone da bandeira
                 const img = document.createElement('img');
@@ -29,12 +32,19 @@ fetchData()
                 // Adiciona a imagem ao link
                 icon.appendChild(img);
 
+                icon.addEventListener('click', function(){
+                    document.getElementById('base').lang = icon.dataset.lang;
+                    carregarPagina(window.location.hash.substring(1));
+                    carregarMenu();
+                })
+
                 document.getElementById('lista-idiomas').appendChild(icon);
             }
 
         });
 
     });
+}
 
 export function carregarPagina(pagina) {
     fetch(`/public/${pagina}.html`)
@@ -70,6 +80,11 @@ export function carregarPagina(pagina) {
 }
 
 export function inicializarMenu() {
+
+    document.getElementById('base').lang = defaultLang();
+
+    carregarMenu();
+
     fetch('/src/components/menu/menu.html')
         .then(response => response.text())
         .then(html => {

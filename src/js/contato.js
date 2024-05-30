@@ -1,7 +1,7 @@
-import { fetchData } from './api.js';
+import { fetchData, langSelection } from './api.js';
 
 export function carregarConteudoContato() {
-    fetchData()
+    fetchData(langSelection())
         .then((data) => {
             const contato = data.find((item) => item.id === "contato");
             const listacontatos = document.getElementById(`lista-contatos`)

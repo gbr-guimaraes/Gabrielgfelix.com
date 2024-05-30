@@ -1,7 +1,7 @@
-import { fetchData } from './api.js'
+import { fetchData, langSelection } from './api.js'
 
 export function carregarProjetos() {
-    fetchData()
+    fetchData(langSelection())
         .then((data) => {
             const projetos = data.find((item) => item.id === "projetos");
             document.getElementById('tituloprojetos').innerHTML = projetos.titulo;
