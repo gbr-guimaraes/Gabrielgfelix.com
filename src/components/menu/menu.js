@@ -1,6 +1,6 @@
 import { carregarConteudoSobre } from '../../js/sobre.js';
 import { carregarConteudoContato } from '../../js/contato.js';
-import { carregarGithub } from '../../js/projetos.js';
+import { carregarProjetos } from '../../js/projetos.js';
 import { fetchData } from '../../js/api.js'
 
 fetchData()
@@ -52,7 +52,7 @@ export function carregarPagina(pagina) {
                 carregarConteudoSobre();
             }
             else if (pagina === 'projetos') {
-                carregarGithub();
+                carregarProjetos();
             }
             else if (pagina === 'contato'){
                 carregarConteudoContato();
