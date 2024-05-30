@@ -8,7 +8,6 @@ export function carregarConteudoContato() {
             document.getElementById('titulocontato').innerHTML = contato.titulo;
 
             Object.entries(contato.listacontatos).forEach(([key, value]) => {
-                console.log(key, value);
                 if (key !== 'id' && key !== 'titulo') {
                     const listItem = document.createElement('div');
                     listItem.classList.add("contato");
