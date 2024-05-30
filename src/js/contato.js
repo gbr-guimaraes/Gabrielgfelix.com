@@ -5,6 +5,7 @@ export function carregarConteudoContato() {
         .then((data) => {
             const contato = data.find((item) => item.id === "contato");
             const listacontatos = document.getElementById(`lista-contatos`)
+            document.getElementById('head-title').innerHTML = `${contato.titulo} - Gabriel G.F.`
             document.getElementById('titulocontato').innerHTML = contato.titulo;
 
             Object.entries(contato.listacontatos).forEach(([key, value]) => {

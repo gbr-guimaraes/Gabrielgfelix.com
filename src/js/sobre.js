@@ -13,6 +13,7 @@ export function carregarConteudoSobre() {
             document.getElementById('endereco').innerHTML = `<img src="../images/address.svg" alt=""><p>${geral.endereco}</p>`;
 
             const sobre = data.find((item) => item.id === "sobremim");
+            document.getElementById('head-title').innerHTML = `${sobre.titulo} - Gabriel G.F.`
             document.getElementById('titulosobre').innerHTML = `<h2>${sobre.titulo}</h2>`;
             document.getElementById('conteudo').innerHTML = `<p>${sobre.descricao}</p>`;
 

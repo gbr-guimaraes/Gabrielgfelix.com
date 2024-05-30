@@ -4,6 +4,7 @@ export function carregarProjetos() {
     fetchData(langSelection())
         .then((data) => {
             const projetos = data.find((item) => item.id === "projetos");
+            document.getElementById('head-title').innerHTML = `${projetos.titulo} - Gabriel G.F.`
             document.getElementById('tituloprojetos').innerHTML = projetos.titulo;
             const linguagem = projetos.linguagem;
 
