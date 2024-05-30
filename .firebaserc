@@ -1,5 +1,16 @@
 {
   "projects": {
     "default": "site-pessoal-9231e"
-  }
+  },
+  "targets": {
+    "site-pessoal-9231e": {
+      "database": {
+        "meusite": [
+          "site-pessoal-9231e"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

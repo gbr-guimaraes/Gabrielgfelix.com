@@ -207,6 +207,8 @@
 }
 
 .content {
+  width: 25.125rem;
+  height: fit-content;
   background: #343a40;
   /* Cor do card */
   padding: 1.25rem;

@@ -1,5 +1,40 @@
-import { classificarSkills } from '../../js/sobre.js';
+import { carregarConteudoSobre } from '../../js/sobre.js';
+import { carregarConteudoContato } from '../../js/contato.js';
 import { carregarGithub } from '../../js/projetos.js';
+import { fetchData } from '../../js/api.js'
+
+fetchData()
+    .then((data) => {
+        const menu = data.find((item) => item.id === "menu");
+        document.getElementById('botao-sobre').innerHTML = `<li>${menu.sobre}</li>`;
+        document.getElementById('botao-projetos').innerHTML = `<li>${menu.projetos}</li>`;
+        document.getElementById('botao-contato').innerHTML = `<li>${menu.contato}</li>`;
+
+        const idiomas = data.find((item) => item.id === "menu-idiomas");
+
+        Object.entries(idiomas).forEach(([key, value]) => {
+            if (key !== 'id') {
+                const icon = document.createElement('a');
+
+                icon.href = "#";
+                icon.dataset.lang = key; // Use a chave (idioma) como valor do data-lang
+                icon.src = value.src; // Acessa o atributo 'src' do objeto 'value'
+                icon.alt = value.alt; // Acessa o atributo 'alt' do objeto 'value'
+
+                // Cria um elemento <img> para o ícone da bandeira
+                const img = document.createElement('img');
+                img.src = icon.src; // Define o 'src' da imagem com o 'src' do link
+                img.alt = icon.alt; // Define o 'alt' da imagem com o 'alt' do link
+
+                // Adiciona a imagem ao link
+                icon.appendChild(img);
+
+                document.getElementById('lista-idiomas').appendChild(icon);
+            }
+
+        });
+
+    });
 
 export function carregarPagina(pagina) {
     fetch(`/public/${pagina}.html`)
@@ -13,10 +48,14 @@ export function carregarPagina(pagina) {
             link.href = `/src/css/${pagina}.css`;
             document.head.appendChild(link);
 
-            if (pagina === 'sobre') {
-                classificarSkills();
-            } else if (pagina === 'projetos') {
+            if (pagina === 'sobre'){
+                carregarConteudoSobre();
+            }
+            else if (pagina === 'projetos') {
                 carregarGithub();
+            }
+            else if (pagina === 'contato'){
+                carregarConteudoContato();
             }
 
             const linksMenu = document.querySelectorAll('.conteudos a');
