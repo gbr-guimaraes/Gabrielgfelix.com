@@ -20,9 +20,8 @@ export function carregarConteudoSobre() {
             const exp = data.find((item) => item.id === "formacao");
             const timeline = document.getElementById("timeline");
             document.getElementById('tituloexp').innerHTML = `<h2>${exp.titulo}</h2>`;
-            Object.entries(exp).forEach(([key, value]) => {
-                if (key !== 'id' && key !== 'titulo') {
-                    const listItem = document.createElement('li');
+            organizarExp(exp).forEach(value => {
+                const listItem = document.createElement('li');
                     listItem.innerHTML = `
                     <div class="content">
                         <h3>${value.cargo}</h3>
@@ -32,8 +31,7 @@ export function carregarConteudoSobre() {
                     </div>
                 `;
                     timeline.appendChild(listItem);
-                }
-            });
+            })
 
             const skills = data.find((item) => item.id === "habilidades");
             document.getElementById('tituloskills').innerHTML = `<h2>${skills.titulo}</h2>`;
@@ -76,4 +74,14 @@ function classificarSkills() {
             segmentos[i].style.backgroundColor = '#EBA417'; // Cor do segmento preenchido
         }
     });
+}
+
+function organizarExp(exp){
+    const entries = [];         
+            Object.entries(exp).forEach(([key, value]) => {
+                if (key !== 'id' && key !== 'titulo') {
+                    entries.push(value);
+                }
+            });
+    return entries.sort((a, b) => {return parseInt(a.inicio) - parseInt(b.inicio)});
 }
