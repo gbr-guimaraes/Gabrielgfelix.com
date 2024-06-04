@@ -50,6 +50,7 @@ export function carregarPagina(pagina) {
     fetch(`/public/${pagina}.html`)
         .then(response => response.text())
         .then(html => {
+            window.location.hash = pagina;
             document.getElementById('content-container').innerHTML = html;
 
             const link = document.createElement('link');
