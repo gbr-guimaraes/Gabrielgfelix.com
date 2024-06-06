@@ -303,13 +303,6 @@
 
   .content {
     width: 40%;
-    height: fit-content;
-    background: #343a40;
-    /* Cor do card */
-    padding: 2.5%;
-    border-radius: 0.25rem;
-    color: #E1E1E6;
-    z-index: 3;
   }
 }
 
