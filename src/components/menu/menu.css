@@ -89,3 +89,53 @@
   object-fit: contain;
   border-radius: 15%;
 }
+
+/* 1280px */
+@media only screen and (max-width: 80em) {
+  .conteudos{
+    width: 60%;
+    margin-left: 20%;
+  }
+  .idiomas{
+    width: 20%;
+  }
+}
+
+/* 1024px */
+@media only screen and (max-width: 64em) {
+  .conteudos{
+    width: 80%;
+    margin-left: 10%;
+  }
+  .idiomas{
+    width: 10%;
+  }
+}
+
+/* 768px */
+@media only screen and (max-width: 48em) {
+  .conteudos{
+    width: 90%;
+    margin-left: 2.5rem;
+  }
+  .idiomas{
+    width: 10%;
+  }
+}
+
+/* 640px */
+@media only screen and (max-width: 40em){
+  .conteudos{
+    width: 90%;
+    margin-left: 0;
+  }
+  .idiomas{
+    width: 10%;
+    padding-right: 0.5rem;
+  }
+}
+
+
+
+
+
