@@ -1,6 +1,1 @@
-import { inicializarMenu, carregarPagina } from '../components/menu/menu.js'; // Importa a função de inicialização
-
-document.addEventListener('DOMContentLoaded', () => {
-  inicializarMenu(); // Executa a função para carregar e configurar o menu
-  carregarPagina('sobre');
-});
+import{inicializarMenu as e,carregarPagina as n}from"../components/menu/menu.js";document.addEventListener("DOMContentLoaded",()=>{e(),n("sobre")});

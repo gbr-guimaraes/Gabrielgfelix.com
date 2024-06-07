@@ -1,34 +1,5 @@
-import { fetchData, langSelection } from './api.js'
-
-export function carregarProjetos() {
-    fetchData(langSelection())
-        .then((data) => {
-            const projetos = data.find((item) => item.id === "projetos");
-            document.getElementById('head-title').innerHTML = `${projetos.titulo} - Gabriel G.F.`
-            document.getElementById('tituloprojetos').innerHTML = projetos.titulo;
-            const linguagem = projetos.linguagem;
-
-            const username = 'gbr-guimaraes';
-            const listaProjetos = document.getElementById('lista-projetos');
-
-            fetch(`https://api.github.com/users/${username}/repos`)
-                .then(response => response.json())
-                .then(data => {
-
-                    data.forEach(repo => {
-                        const listItem = document.createElement('div');
-                        listItem.classList.add('projeto');
-                        listItem.innerHTML = `
-                <h3><a href="${repo.html_url} " target="_blank" rel="noopener noreferrer">${repo.name.replaceAll('-', ' ')}</a></h3>
-                <p>${repo.description}</p>
-                <p>${linguagem}: ${repo.language}</p>
-            `;
-                        listaProjetos.appendChild(listItem);
-                    });
-                })
-                .catch(error => {
-                    console.error("Erro ao buscar repositórios:", error);
-                    listaProjetos.innerHTML = "<p>Erro ao carregar os projetos.</p>";
-                });
-        });
-}
+import{fetchData as e,langSelection as r}from"./api.js";export function carregarProjetos(){e(r()).then(e=>{let r=e.find(e=>"projetos"===e.id);document.getElementById("head-title").innerHTML=`${r.titulo} - Gabriel G.F.`,document.getElementById("tituloprojetos").innerHTML=r.titulo;let t=r.linguagem,o=document.getElementById("lista-projetos");fetch("https://api.github.com/users/gbr-guimaraes/repos").then(e=>e.json()).then(e=>{e.forEach(e=>{let r=document.createElement("div");r.classList.add("projeto"),r.innerHTML=`
+                <h3><a href="${e.html_url} " target="_blank" rel="noopener noreferrer">${e.name.replaceAll("-"," ")}</a></h3>
+                <p>${e.description}</p>
+                <p>${t}: ${e.language}</p>
+            `,o.appendChild(r)})}).catch(e=>{console.error("Erro ao buscar reposit\xf3rios:",e),o.innerHTML="<p>Erro ao carregar os projetos.</p>"})})}
