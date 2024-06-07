@@ -14,68 +14,95 @@ const cors = require("cors")({origin: true});
 admin.initializeApp();
 const db = admin.firestore();
 
-exports.ptbr = functions.https.onRequest((req, res) => {
-  cors(req, res, () => {
-    // Monitorar alterações na coleção "sobre"
-    db.collection("pt-BR")
-        .onSnapshot((snapshot) => {
-          const sobreData = [];
-          snapshot.forEach((doc) => {
-            sobreData.push({id: doc.id, ...doc.data()});
-          });
-          res.json(sobreData);
-        }, (error) => {
-          res.status(500).json({error: error.message});
-        });
-  });
-});
+exports.ptbr = functions
+    .region("southamerica-east1")
+    .https.onRequest((req, res) => {
+      cors(req, res, () => {
+        // Monitorar alterações na coleção "sobre"
+        db.collection("pt-BR")
+            .onSnapshot((snapshot) => {
+              const sobreData = [];
+              snapshot.forEach((doc) => {
+                sobreData.push({id: doc.id, ...doc.data()});
+              });
+              res.json(sobreData);
+            }, (error) => {
+              res.status(500).json({error: error.message});
+            });
+      });
+    });
 
-exports.eses = functions.https.onRequest((req, res) => {
-  cors(req, res, () => {
-    // Monitorar alterações na coleção "sobre"
-    db.collection("es-ES")
-        .onSnapshot((snapshot) => {
-          const sobreData = [];
-          snapshot.forEach((doc) => {
-            sobreData.push({id: doc.id, ...doc.data()});
-          });
-          res.json(sobreData);
-        }, (error) => {
-          res.status(500).json({error: error.message});
-        });
-  });
-});
+exports.eses = functions
+    .region("southamerica-east1")
+    .https.onRequest((req, res) => {
+      cors(req, res, () => {
+        // Monitorar alterações na coleção "sobre"
+        db.collection("es-ES")
+            .onSnapshot((snapshot) => {
+              const sobreData = [];
+              snapshot.forEach((doc) => {
+                sobreData.push({id: doc.id, ...doc.data()});
+              });
+              res.json(sobreData);
+            }, (error) => {
+              res.status(500).json({error: error.message});
+            });
+      });
+    });
 
-exports.itit = functions.https.onRequest((req, res) => {
-  cors(req, res, () => {
-    // Monitorar alterações na coleção "sobre"
-    db.collection("it-IT")
-        .onSnapshot((snapshot) => {
-          const sobreData = [];
-          snapshot.forEach((doc) => {
-            sobreData.push({id: doc.id, ...doc.data()});
-          });
-          res.json(sobreData);
-        }, (error) => {
-          res.status(500).json({error: error.message});
-        });
-  });
-});
+exports.itit = functions
+    .region("southamerica-east1")
+    .https.onRequest((req, res) => {
+      cors(req, res, () => {
+        // Monitorar alterações na coleção "sobre"
+        db.collection("it-IT")
+            .onSnapshot((snapshot) => {
+              const sobreData = [];
+              snapshot.forEach((doc) => {
+                sobreData.push({id: doc.id, ...doc.data()});
+              });
+              res.json(sobreData);
+            }, (error) => {
+              res.status(500).json({error: error.message});
+            });
+      });
+    });
 
+exports.enus = functions
+    .region("southamerica-east1")
+    .https.onRequest((req, res) => {
+      cors(req, res, () => {
+        // Monitorar alterações na coleção "sobre"
+        db.collection("en-US")
+            .onSnapshot((snapshot) => {
+              const sobreData = [];
+              snapshot.forEach((doc) => {
+                sobreData.push({id: doc.id, ...doc.data()});
+              });
+              res.json(sobreData);
+            }, (error) => {
+              res.status(500).json({error: error.message});
+            });
+      });
+    });
 
-exports.enus = functions.https.onRequest((req, res) => {
-  cors(req, res, () => {
-    // Monitorar alterações na coleção "sobre"
-    db.collection("en-US")
-        .onSnapshot((snapshot) => {
-          const sobreData = [];
-          snapshot.forEach((doc) => {
-            sobreData.push({id: doc.id, ...doc.data()});
-          });
-          res.json(sobreData);
-        }, (error) => {
-          res.status(500).json({error: error.message});
-        });
-  });
-});
-
+exports.teste = functions
+    .region("southamerica-east1")
+    .https.onRequest((req, res) => {
+      cors(req, res, () => {
+        // Obter todas as coleções do banco de dados
+        db.listCollections()
+            .forEach((collection) => {
+              console.log("Found subcollection with id:", collection.id);
+              db.collection(collection.id).onSnapshot((snapshot) => {
+                const sobreData = [];
+                snapshot.forEach((doc) => {
+                  sobreData.push({id: doc.id, ...doc.data()});
+                });
+                res.json(sobreData);
+              }, (error) => {
+                res.status(500).json({error: error.message});
+              });
+            });
+      });
+    });
