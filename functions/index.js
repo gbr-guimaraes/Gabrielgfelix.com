@@ -89,20 +89,34 @@ exports.enus = functions
 exports.teste = functions
     .region("southamerica-east1")
     .https.onRequest((req, res) => {
-      cors(req, res, () => {
+      cors(req, res, async () => {
         // Obter todas as coleções do banco de dados
-        db.listCollections()
-            .forEach((collection) => {
-              console.log("Found subcollection with id:", collection.id);
-              db.collection(collection.id).onSnapshot((snapshot) => {
-                const sobreData = [];
-                snapshot.forEach((doc) => {
-                  sobreData.push({id: doc.id, ...doc.data()});
-                });
-                res.json(sobreData);
-              }, (error) => {
-                res.status(500).json({error: error.message});
+        const collections = await db.listCollections();
+
+        // Criar um array de promises para cada coleção
+        const promises = collections.map((collection) => {
+          return new Promise((resolve, reject) => {
+            db.collection(collection.id).onSnapshot((snapshot) => {
+              const sobreData = [];
+              snapshot.forEach((doc) => {
+                sobreData.push({id: doc.id, ...doc.data()});
               });
+              resolve({[collection.id]: sobreData});
+            }, (error) => {
+              reject(error); // Rejeita a promise caso ocorra um erro
+            });
+          });
+        });
+
+        // Esperar que todas as promises sejam resolvidas
+        Promise.all(promises)
+            .then((data) => {
+            // Junta os dados de todas as coleções em um único array
+              const allData = data.flat();
+              res.json(allData);
+            })
+            .catch((error) => {
+              res.status(500).json({error: error.message});
             });
       });
     });
